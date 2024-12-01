@@ -1,16 +1,17 @@
-package main
+package day1
 
 import (
 	"bufio"
 	"fmt"
+	"ipmanlk/avc_2024/utils"
 	"os"
 	"sort"
 	"strconv"
 	"strings"
 )
 
-func main() {
-	list1, list2, err := readInput("input")
+func Solve() {
+	list1, list2, err := readInput("inputs/day1")
 	if err != nil {
 		fmt.Printf("Error reading input: %v\n", err)
 		return
@@ -26,7 +27,7 @@ func solvePart1(list1, list2 []int) {
 
 	totalDistance := 0
 	for i := 0; i < len(list1); i++ {
-		distance := abs(list1[i] - list2[i])
+		distance := utils.AbsInt(list1[i] - list2[i])
 		totalDistance += distance
 	}
 
@@ -40,7 +41,6 @@ func solvePart2(list1, list2 []int) {
 		list2Counts[num]++
 	}
 
-	// Calculate the similarity score
 	similarityScore := 0
 	for _, num := range list1 {
 		if count, ok := list2Counts[num]; ok {
@@ -87,11 +87,4 @@ func readInput(filename string) ([]int, []int, error) {
 	}
 
 	return list1, list2, nil
-}
-
-func abs(x int) int {
-	if x < 0 {
-		return -x
-	}
-	return x
 }
