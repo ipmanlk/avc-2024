@@ -11,6 +11,8 @@ import (
 )
 
 func Solve() {
+	fmt.Println("Day 1")
+
 	list1, list2, err := readInput("inputs/day1")
 	if err != nil {
 		fmt.Printf("Error reading input: %v\n", err)
@@ -31,7 +33,7 @@ func solvePart1(list1, list2 []int) {
 		totalDistance += distance
 	}
 
-	fmt.Println("Part 1 - Total Distance:", totalDistance)
+	fmt.Println("Part 1: Total Distance:", totalDistance)
 }
 
 func solvePart2(list1, list2 []int) {
@@ -48,7 +50,7 @@ func solvePart2(list1, list2 []int) {
 		}
 	}
 
-	fmt.Println("Part 2 - Similarity Score:", similarityScore)
+	fmt.Println("Part 2: Similarity Score:", similarityScore)
 }
 
 func readInput(filename string) ([]int, []int, error) {
